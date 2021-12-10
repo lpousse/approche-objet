@@ -9,7 +9,5 @@ public class TestBanque
 		Compte account = new Compte (205, 3600);
 		
 		System.out.println(account);
-		System.out.println(account.getAccountNb());
-		System.out.println(account.getAccountBalance());
 	}
 }

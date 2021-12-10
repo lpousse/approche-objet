@@ -30,4 +30,9 @@ public class Compte
 	{
 		accountBalance = _accountBalance;
 	}
+	
+	public String toString()
+	{
+		return "Account number: " + accountNb + "; Account balance: " + accountBalance;
+	}
 }
