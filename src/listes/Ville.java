@@ -2,8 +2,8 @@ package listes;
 
 public class Ville
 {
-	String name;
-	int nbHab;
+	public String name;
+	public int nbHab;
 	
 	public Ville(String name, int nbHab)
 	{

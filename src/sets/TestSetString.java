@@ -23,9 +23,7 @@ public class TestSetString
 		String longer = null;
 		for (String string : set)
 		{
-			if (longer == null)
-				longer = string;
-			else if (string.length() > longer.length())
+			if (longer == null || string.length() > longer.length())
 				longer = string;
 		}
 		set.remove(longer);
