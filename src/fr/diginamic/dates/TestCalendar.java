@@ -7,6 +7,7 @@ import java.util.Locale;
 
 public class TestCalendar
 {
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args)
 	{
 		Calendar cal = Calendar.getInstance();
