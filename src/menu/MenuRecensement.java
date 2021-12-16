@@ -34,6 +34,7 @@ public class MenuRecensement
 					break;
 				}
 				case 2:
+				{
 					System.out.println("Veuillez entrez le code du département dont vous voulez connaitre la population.");
 					String departmentCode = scanner.nextLine();
 					int pop = fe.getDepartmentPopulation(departmentCode);
@@ -42,6 +43,39 @@ public class MenuRecensement
 					else
 						System.out.println("La population totale de ce département est de " + pop + " habitants.");
 					break;
+				}
+				case 3:
+				{
+					System.out.println("Veuillez entrez le nom de la région dont vous voulez connaitre la population.");
+					String region = scanner.nextLine();
+					int pop = fe.getRegionPopulation(region);
+					if (pop < 0)
+						System.out.println("Nous n'avons pas trouvé de région correspondante à votre demande.");
+					else
+						System.out.println("La population totale de cette région est de " + pop + " habitants.");
+					break;
+				}
+				case 4:
+				{
+					
+					break;
+				}
+				case 5:
+				{
+					break;
+				}
+				case 6:
+				{
+					break;
+				}
+				case 7:
+				{
+					break;
+				}
+				case 8:
+				{
+					break;
+				}
 				case 9:
 				{
 					exit = true;

@@ -16,8 +16,8 @@ public class ComptagePaysParContinent
 		list.add(new Pays("Belgique", 10000000, "Europe"));
 		list.add(new Pays("Russie", 150000000, "Asie"));
 		list.add(new Pays("Chine", 1400000000, "Asie"));
-		list.add(new Pays("Indonésie", 220000000, "Océanie"));
-		list.add(new Pays("Australie", 20000000, "Océanie"));
+		list.add(new Pays("IndonÃ©sie", 220000000, "OcÃ©anie"));
+		list.add(new Pays("Australie", 20000000, "OcÃ©anie"));
 		
 		Map<String, Integer> map = new HashMap<>();
 		

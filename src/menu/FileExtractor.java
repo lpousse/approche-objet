@@ -6,12 +6,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import maps.Pays;
 
 public class FileExtractor
 {
 	Path path;
 	List<String[]> entries = new ArrayList<>();
+	Map<String, Integer> departmentPopulation = null;
+	Map<String, Integer> regionPopulation = null;
 	
 	public FileExtractor(String path) throws IOException
 	{
@@ -36,21 +42,56 @@ public class FileExtractor
 		return -1;
 	}
 	
+	private void computeDepartmentPopulation()
+	{
+		departmentPopulation = new HashMap<>();
+		
+		for (String[] entry : entries)
+		{
+			int pop = Integer.parseInt(entry[9].replace(" ", ""));
+			if (departmentPopulation.get(entry[2]) == null)
+				departmentPopulation.put(entry[2], pop);
+			else
+				departmentPopulation.replace(entry[2], departmentPopulation.get(entry[2]) + pop);
+		}
+	}
+	
 	public int getDepartmentPopulation(String departmentCode)
 	{
 		departmentCode = departmentCode.trim();
-		int total = 0;
-		boolean foundDepartment = false;
+		if (departmentPopulation == null)
+			computeDepartmentPopulation();
+		if (departmentPopulation.get(departmentCode) == null)
+			return -1;
+		return departmentPopulation.get(departmentCode);
+	}
+	
+	private void computeRegionPopulation()
+	{
+		regionPopulation = new HashMap<>();
+		
 		for (String[] entry : entries)
 		{
-			if (departmentCode.equalsIgnoreCase(entry[2]))
-			{
-				foundDepartment = true;
-				total += Integer.parseInt(entry[9].replace(" ", ""));
-			}
+			int pop = Integer.parseInt(entry[9].replace(" ", ""));
+			if (regionPopulation.get(entry[1]) == null)
+				regionPopulation.put(entry[1], pop);
+			else
+				regionPopulation.replace(entry[1], regionPopulation.get(entry[1]) + pop);
 		}
-		if (!foundDepartment)
+	}
+	
+	public int getRegionPopulation(String region)
+	{
+		region = region.trim();
+		if (regionPopulation == null)
+			computeRegionPopulation();
+		if (regionPopulation.get(region) == null)
 			return -1;
-		return total;
+		return regionPopulation.get(region);
+	}
+	
+	public List<String> get10MostPolupatedRegion(String region)
+	{
+		return null;
 	}
 }
