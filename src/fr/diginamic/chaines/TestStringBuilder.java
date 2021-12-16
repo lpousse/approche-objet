@@ -25,7 +25,5 @@ public class TestStringBuilder
 		end = System.currentTimeMillis();
 		
 		System.out.println("Elapsed time in ms: " + (end - start));
-		
-		
 	}
 }
