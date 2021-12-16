@@ -4,6 +4,7 @@ public class Ville implements Comparable<Ville>
 {
 	public String name;
 	public int nbHab;
+	private Continent continent = null;
 	
 	public Ville(String name, int nbHab)
 	{
@@ -11,10 +12,19 @@ public class Ville implements Comparable<Ville>
 		this.nbHab = nbHab;
 	}
 	
+	public Ville(String name, int nbHab, Continent continent)
+	{
+		this.name = name;
+		this.nbHab = nbHab;
+		this.continent = continent;
+	}
+	
 	@Override
 	public String toString()
 	{
-		return "{" + name + ", " + nbHab + "}";
+		if (continent == null)
+			return "{" + name + ", " + nbHab + "}";
+		return "{" + name + ", " + nbHab + ", " + continent.libelle + "}";
 	}
 
 	@Override
@@ -35,5 +45,15 @@ public class Ville implements Comparable<Ville>
 			return false;
 		Ville other = (Ville) obj;
 		return (name.equals(other.name) && nbHab == other.nbHab);
+	}
+
+	public Continent getContinent()
+	{
+		return continent;
+	}
+
+	public void setContinent(Continent continent)
+	{
+		this.continent = continent;
 	}
 }
